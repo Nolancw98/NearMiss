@@ -55,7 +55,7 @@ public class GameLogic {
                 while (placing) {
                     boolean done = true;
                     while (done) {
-                        System.out.println("Enter the x coord:");
+                        System.out.println("Enter the row:");
                         try {
                             x = s.nextInt();
                             done = false;
@@ -65,9 +65,8 @@ public class GameLogic {
                         }
                     }
                     done = true;
-
                     while (done) {
-                        System.out.println("Enter the y coord:");
+                        System.out.println("Enter the column:");
                         try {
                             y = s.nextInt();
                             done = false;
@@ -76,7 +75,6 @@ public class GameLogic {
                             s.next();
                         }
                     }
-                    
                     if(!board.spaceFilled(x, y))
                     {
                         placing = false;
@@ -91,5 +89,4 @@ public class GameLogic {
         }
         System.out.println("Score: " + board.computeScore());
     }
-
 }
