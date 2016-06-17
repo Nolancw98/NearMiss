@@ -59,4 +59,36 @@ public class Board {
     {
         return entries;
     }
+    
+    public boolean boardFilled()
+    {
+        String temp = "";
+        for(Object[] r : entries)
+        {
+            for(Object c : r)
+            {
+                temp += c.toString();
+            }
+        }
+        if(temp.contains("_"))
+            return false;
+        return true;
+    }
+    public boolean spaceFilled(int r, int c)
+    {
+        try
+        {
+            if(entries[r][c].toString().equals("_"))
+                return false;
+            return true;
+        }
+        catch(Exception e)
+        {
+            return true;
+        }
+    }
+    public boolean computeScore()
+    {
+        return true;
+    }
 }
