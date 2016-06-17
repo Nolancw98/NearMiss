@@ -59,4 +59,46 @@ public class Board {
     {
         return entries;
     }
+    
+    public boolean boardFilled()
+    {
+        String temp = "";
+        for(Object[] r : entries)
+        {
+            for(Object c : r)
+            {
+                temp += c;
+            }
+        }
+        if(temp.contains("_"))
+            return false;
+        return true;
+    }
+    public boolean spaceFilled(int r, int c)
+    {
+        try
+        {
+            if(entries[r][c].toString().equals("_"))
+                return false;
+            return true;
+        }
+        catch(Exception e)
+        {
+            return true;
+        }
+    }
+    public int computeScore()
+    {
+        int score = 0;
+        if(boardFilled())
+        {
+            score += Math.abs(5 - Integer.valueOf(entries[0][1].toString()));
+            score += Math.abs(10 - Integer.valueOf(entries[1][1].toString()));
+            score += Math.abs(20 - Integer.valueOf(entries[2][1].toString() + entries[2][2].toString()));
+            score += Math.abs(50 - Integer.valueOf(entries[3][1].toString() + entries[3][2].toString()));
+            score += Math.abs(100 - Integer.valueOf(entries[4][1].toString() + entries[4][2].toString()));
+            score += Math.abs(100 - Integer.valueOf(entries[5][1].toString() + entries[5][2].toString() + entries[5][3].toString()));
+        }
+        return score;
+    }
 }
