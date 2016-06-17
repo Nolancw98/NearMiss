@@ -79,6 +79,7 @@ public class GameLogic {
                 }
             }
             board.placeNumber(new Integer(next), x, y);
+            System.out.println("Test");
         }
     }
         
